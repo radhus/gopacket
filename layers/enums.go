@@ -149,6 +149,7 @@ const (
 	PPPTypeIPv6          PPPType = 0x0057
 	PPPTypeMPLSUnicast   PPPType = 0x0281
 	PPPTypeMPLSMulticast PPPType = 0x0283
+	PPPTypeLCP           PPPType = 0xC021
 )
 
 // SCTPChunkType is an enumeration of chunk types inside SCTP packets.
@@ -362,6 +363,7 @@ func initActualTypeData() {
 	PPPTypeMetadata[PPPTypeIPv6] = EnumMetadata{DecodeWith: gopacket.DecodeFunc(decodeIPv6), Name: "IPv6"}
 	PPPTypeMetadata[PPPTypeMPLSUnicast] = EnumMetadata{DecodeWith: gopacket.DecodeFunc(decodeMPLS), Name: "MPLSUnicast"}
 	PPPTypeMetadata[PPPTypeMPLSMulticast] = EnumMetadata{DecodeWith: gopacket.DecodeFunc(decodeMPLS), Name: "MPLSMulticast"}
+	PPPTypeMetadata[PPPTypeLCP] = EnumMetadata{DecodeWith: gopacket.DecodeFunc(decodeLCP), Name: "LCP"}
 
 	PPPoECodeMetadata[PPPoECodeSession] = EnumMetadata{DecodeWith: gopacket.DecodeFunc(decodePPP), Name: "PPP"}
 
